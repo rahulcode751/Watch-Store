@@ -1,0 +1,49 @@
+/** @format */
+/* .admin-menu-class {
+} */
+.user-menu {
+  margin-top: 15px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  /* width: 80% !important; */
+}
+/* .dashboard-menu {
+    
+  } */
+.user-head {
+  color: black !important;
+  background-color: #ecf5f8;
+  margin-bottom: 15px;
+  height: 50px !important;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+}
+
+/* .list-group {
+  }
+  .list-group-item {
+  }
+  .list-group-item-action {
+  } */
+
+.user-menu-class-2 {
+  margin-top: 15px !important;
+  /* margin-left: -70px; */
+}
+.card-dash {
+  background-color: #f6f9fa;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  padding-left: 10px !important;
+  padding-right: 2px !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  border-bottom: 1px solid black;
+}

@@ -1,0 +1,21 @@
+/**
+ * Button
+ *
+ * @format
+ */
+.category-form {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 2%;
+  /* width: 50%; */
+}
+.btn {
+  margin-left: 1%;
+  height: 50% !important;
+}
+/* .table-div {
+  width: 80%;
+}
+.table-div td {
+   
+} */

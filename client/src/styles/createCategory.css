@@ -1,0 +1,19 @@
+/** @format */
+.heading-h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
+.table-div {
+  width: 98%;
+}
+.create-category-table {
+  border: 2px solid black !important;
+  /* background-color: #faf0d7 !important; */
+}
+.create-category-table-head {
+  background-color: #fdfaa9 !important;
+  font-weight: bolder !important;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.create-category-table-body {
+  background-color: #fffae5 !important;
+}
