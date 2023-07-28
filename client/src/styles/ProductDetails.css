@@ -1,0 +1,21 @@
+/** @format */
+
+.product-container {
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-bottom: 0px;
+}
+.product-img-card-st {
+  /* height: 300 !important; */
+  /* width: 600px !important; */
+  height: 600;
+  width: 600px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  border: 0.5px solid black;
+  border-radius: 30px;
+}
+.detials-card {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700 !important;
+  /* margin-left: -1px; */
+}

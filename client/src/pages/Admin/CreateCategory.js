@@ -20,7 +20,7 @@ const CreateCategory = () => {
             const { data } = await axios.post(`${process.env.REACT_APP_API}/category/create-category`, { name })
             if (data?.success) {
                 toast.success(`${name} is created`)
-                getAllCatgeory();
+                getAllCategory();
             } else {
                 toast.error(data.message);
             }
@@ -31,10 +31,10 @@ const CreateCategory = () => {
     }
 
     // GET ALL CATEGORY
-    const getAllCatgeory = async () => {
+    const getAllCategory = async () => {
         try {
             const { data } = await axios.get(`${process.env.REACT_APP_API}/category/get-category`);
-            if (data.success) {
+            if (data?.success) {
                 setCategories(data.category);
             }
         } catch (error) {
@@ -44,7 +44,7 @@ const CreateCategory = () => {
     }
 
     useEffect(() => {
-        getAllCatgeory();
+        getAllCategory();
     }, [])
 
     //update category
@@ -60,12 +60,12 @@ const CreateCategory = () => {
                 setSelected(null);
                 setUpdatedName("");
                 setVisible(false);
-                getAllCatgeory();
+                getAllCategory();
             } else {
                 toast.error(data.message);
             }
         } catch (error) {
-            toast.error("Somtihing went wrong");
+            toast.error("Something went wrong");
         }
     };
 
@@ -75,9 +75,9 @@ const CreateCategory = () => {
             const { data } = await axios.delete(
                 `${process.env.REACT_APP_API}/category/delete-category/${pid}`
             );
-            if (data.success) {
+            if (data?.success) {
                 toast.success(`category is deleted`);
-                getAllCatgeory();
+                getAllCategory();
             } else {
                 toast.error(data.message);
             }

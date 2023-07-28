@@ -6,6 +6,7 @@ import { useAuth } from '../../context/auth';
 import { toast } from 'react-hot-toast';
 // import { GiShoppingBag } from 'react-icons/gi'
 import "../../index.css";
+import SearchInput from '../Form/SearchInput';
 
 const Header = () => {
     const [auth, setAuth] = useAuth();
@@ -32,30 +33,43 @@ const Header = () => {
                         <span className="navbar-toggler-icon" />
                     </button>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <Link to="/" className="navbar-brand" ><BsWatch />BuyNow</Link>
+                        <Link to="/" className="navbar-brand" ><BsWatch className='watch-logo' />BuyNow</Link>
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <SearchInput />
                             <li className="nav-item">
-                                <NavLink to="/" className="nav-link"
-                                >HOME
+                                <NavLink to="/" className="nav-link">
+                                    <button className='button-30'>
+                                        HOME
+                                    </button>
                                 </NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink to="/category" className="nav-link"
-                                >CATEGORY
+                                <NavLink to="/category" className="nav-link">
+                                    <button className='button-30'>
+                                        CATEGORY
+                                    </button>
                                 </NavLink>
                             </li>
-
                             {
                                 !auth.user ? (<>
                                     <li className="nav-item">
-                                        <NavLink to="/register" className="nav-link" href="#">REGISTER</NavLink>
+                                        <NavLink to="/register" className="nav-link" href="#">
+                                            <button className='button-30'>
+                                                REGISTER
+                                            </button>
+                                        </NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <NavLink to="/login" className="nav-link" href="#">LOGIN</NavLink>
+                                        <NavLink to="/login" className="nav-link" href="#">
+                                            <button className='button-30'>
+                                                LOGIN
+                                            </button>
+                                        </NavLink>
                                     </li>
                                 </>) : (
                                     <>
                                         <li className="nav-item dropdown">
+
                                             <NavLink
                                                 className="nav-link dropdown-toggle"
                                                 href="#"
@@ -63,8 +77,13 @@ const Header = () => {
                                                 data-bs-toggle="dropdown"
                                                 style={{ border: "none" }}
                                             >
-                                                {auth?.user?.name}
+                                                <button className="button-30">
+                                                    {auth?.user?.name}
+                                                </button>
+
                                             </NavLink>
+
+
                                             <ul className="dropdown-menu">
                                                 <li>
                                                     <NavLink
@@ -85,12 +104,17 @@ const Header = () => {
                                                     </NavLink>
                                                 </li>
                                             </ul>
+
                                         </li>
                                     </>
                                 )
                             }
                             <li className="nav-item">
-                                <NavLink to="/cart" className="nav-link" href="#">CART (0)</NavLink>
+                                <NavLink to="/cart" className="nav-link">
+                                    <button className='button-30'>
+                                        CART (0)
+                                    </button>
+                                </NavLink>
                             </li>
                         </ul>
                     </div>

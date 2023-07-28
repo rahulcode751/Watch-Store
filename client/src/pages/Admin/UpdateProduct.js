@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import Layout from '../../components/Layout/Layout'
-import AdminMenu from '../../components/Layout/AdminMenu'
-import { toast } from 'react-hot-toast';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import Layout from '../../components/Layout/Layout';
+import AdminMenu from '../../components/Layout/AdminMenu';
 import { Select } from 'antd';
-import { useNavigate } from 'react-router-dom';
 import '../../styles/createProduct.css';
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
+import { useNavigate, useParams } from 'react-router-dom';
 const { Option } = Select;
 
-const CreateProduct = () => {
+const UpdateProduct = () => {
     const navigate = useNavigate();
+    const params = useParams();
     const [categories, setCategories] = useState([]);
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -18,6 +19,32 @@ const CreateProduct = () => {
     const [quantity, setQuantity] = useState("");
     const [shipping, setShipping] = useState("");
     const [photo, setPhoto] = useState("");
+    const [id, setId] = useState("");
+
+    //get single product
+    const getSingleProduct = async () => {
+        try {
+            const { data } = await axios.get(
+                `${process.env.REACT_APP_API}/product/get-product/${params.slug}`
+            );
+            console.log(data);
+            setName(data.product.name);
+            setId(data.product._id);
+            setDescription(data.product.description);
+            setPrice(data.product.price);
+            setPrice(data.product.price);
+            setQuantity(data.product.quantity);
+            setShipping(data.product.shipping);
+            setCategory(data.product.category._id);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    useEffect(() => {
+        getSingleProduct();
+
+        //eslint-disable-next-line
+    }, []);
 
     // GET ALL CATEGORY
     const getAllCategory = async () => {
@@ -31,9 +58,13 @@ const CreateProduct = () => {
             toast.error("Something went wrong in getting category");
         }
     }
+    useEffect(() => {
+        getAllCategory();
+    }, []);
 
-    // handle create
-    const handleCreate = async (e) => {
+
+    // handle update
+    const handleUpdate = async (e) => {
         e.preventDefault();
         try {
             const productData = new FormData();
@@ -41,16 +72,14 @@ const CreateProduct = () => {
             productData.append("description", description);
             productData.append("price", price);
             productData.append("quantity", quantity);
-            productData.append("photo", photo);
+            photo && productData.append("photo", photo);
             productData.append("category", category);
-            const { data } = axios.post(`${process.env.REACT_APP_API}/product/create-product`, productData);
+            const { data } = axios.put(`${process.env.REACT_APP_API}/product/update-product/${id}`, productData);
 
             if (data?.success) {
                 toast.error(data?.message);
-
             } else {
-                toast.success("Product Created Successfully");
-                navigate("/dashboard/admin/products");
+                toast.success("Product Updated Successfully");
             }
 
         } catch (error) {
@@ -58,18 +87,31 @@ const CreateProduct = () => {
             toast.error("Something went wrong in creating product");
         }
     }
-    useEffect(() => {
-        getAllCategory();
-    }, []);
+
+    //delete a product
+    const handleDelete = async () => {
+        try {
+            let answer = window.prompt("Are You Sure you want to delete this product? ");
+            if (!answer) return;
+            const { data } = await axios.delete(
+                `${process.env.REACT_APP_API}/product/delete-product/${id}`
+            );
+            toast.success("Product Deleted Succfully");
+            navigate("/dashboard/admin/products");
+        } catch (error) {
+            console.log(error);
+            toast.error("Something went wrong");
+        }
+    };
     return (
-        <Layout title={"Dashboard - Create Product"}>
+        <Layout title={"Dashboard - Update Product"}>
             <div className="container-fluid  p-1">
                 <div className="row">
                     <div className="col-md-3">
                         <AdminMenu />
                     </div>
                     <div className="col-md-9">
-                        <h1>Create Product</h1>
+                        <h1>Update Product</h1>
                         <div className="m-1 w-75">
                             <Select
                                 bordered={false}
@@ -80,6 +122,7 @@ const CreateProduct = () => {
                                 onChange={(value) => {
                                     setCategory(value);
                                 }}
+                                value={category}
                             >
                                 {categories?.map((c) => (
                                     <Option
@@ -135,6 +178,7 @@ const CreateProduct = () => {
                                     size="large"
                                     showSearch
                                     className="form-select mb-3"
+                                    value={shipping ? "yes" : "No"}
                                     onChange={(value) => {
                                         setShipping(value);
                                     }}
@@ -156,7 +200,7 @@ const CreateProduct = () => {
                                 </label>
                             </div>
                             <div className="mb-3">
-                                {photo && (
+                                {photo ? (
                                     <div className="text-center">
                                         <img
                                             src={URL.createObjectURL(photo)}
@@ -165,15 +209,33 @@ const CreateProduct = () => {
                                             className="img img-responsive product-img"
                                         />
                                     </div>
-                                )}
+                                )
+                                    : (
+                                        <div className="text-center">
+                                            <img
+                                                src={`${process.env.REACT_APP_API}/product/product-photo/${id}`}
+                                                alt="product_photo"
+                                                height={"200px"}
+                                                className="img img-responsive product-img"
+                                            />
+                                        </div>
+                                    )}
                             </div>
                             <div className="mb-3">
                                 <button
                                     type="submit"
                                     className="button-54"
-                                    onClick={handleCreate}
+                                    onClick={handleUpdate}
                                 >
-                                    CREATE PRODUCT
+                                    UPDATE PRODUCT
+                                </button>
+                                <button
+                                    type="submit"
+                                    className="button-54"
+                                    onClick={handleDelete}
+                                    style={{ margin: "10px" }}
+                                >
+                                    DELETE PRODUCT
                                 </button>
                             </div>
                         </div>
@@ -184,4 +246,4 @@ const CreateProduct = () => {
     )
 }
 
-export default CreateProduct
+export default UpdateProduct
