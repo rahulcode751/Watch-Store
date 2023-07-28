@@ -172,7 +172,7 @@
   color: #0000;
   border: none;
   /* margin-left: 14% !important; */
-  transform: perspective(500px) rotateY(calc(20deg * var(--_i, -1)));
+  transform: perspective(500px) rotateY(calc(20deg * var(--_i, 1)));
   text-shadow: calc(var(--_i, -1) * 0.08em) -0.01em 0 var(--c),
     calc(var(--_i, -1) * -0.08em) 0.01em 2px #0004;
   outline-offset: 0.1em;
@@ -182,7 +182,7 @@
 .button-92:hover,
 .button-92:focus-visible {
   --_p: 0%;
-  --_i: 1;
+  --_i: -1;
 }
 
 .button-92:active {

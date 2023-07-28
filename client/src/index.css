@@ -354,3 +354,16 @@ s .navbar-brand {
   box-shadow: #d6d6e7 0 3px 7px inset;
   transform: translateY(2px);
 }
+
+.btn-outline-success {
+  color: black !important;
+  border: 1px solid black !important;
+  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+  background-color: rgb(238, 243, 249) !important;
+}
+.btn-outline-success:hover {
+  background-color: white !important;
+}
+.btn-outline-success:active {
+  background-color: white !important;
+}

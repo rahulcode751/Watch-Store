@@ -244,7 +244,7 @@ export const productListController = async (req, res) => {
     }
 }
 
-// SEARCH PRODUCT || POST
+// SEARCH PRODUCT || GET
 export const searchProductController = async (req, res) => {
     try {
         const { keyword } = req.params;
@@ -266,3 +266,28 @@ export const searchProductController = async (req, res) => {
         });
     }
 };
+
+// SIMILAR PRODUCT || GET
+export const relatedProductController = async (req, res) => {
+    try {
+        const { pid, cid } = req.params;
+        const products = await productModel
+            .find({
+                category: cid,
+                _id: { $ne: pid },
+            })
+            .select("-photo")
+            .limit(4)
+            .populate("category");
+        res.status(200).send({
+            success: true,
+            products,
+        });
+    } catch (error) {
+        res.status(400).send({
+            success: false,
+            message: "Error In Search Product API",
+            error,
+        });
+    }
+}

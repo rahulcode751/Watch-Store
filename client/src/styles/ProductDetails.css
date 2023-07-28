@@ -9,7 +9,7 @@
   /* height: 300 !important; */
   /* width: 600px !important; */
   height: 600;
-  width: 600px;
+  width: 400px;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
   border: 0.5px solid black;
   border-radius: 30px;
@@ -18,4 +18,11 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 700 !important;
   /* margin-left: -1px; */
+}
+.similar-product {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700 !important;
+  font-size: larger !important;
+  margin-top: 40px;
+  margin-left: 10px;
 }

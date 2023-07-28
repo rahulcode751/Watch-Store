@@ -38,14 +38,14 @@ const Header = () => {
                             <SearchInput />
                             <li className="nav-item">
                                 <NavLink to="/" className="nav-link">
-                                    <button className='button-30'>
+                                    <button className='btn btn-outline-success'>
                                         HOME
                                     </button>
                                 </NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink to="/category" className="nav-link">
-                                    <button className='button-30'>
+                                    <button className='btn btn-outline-success'>
                                         CATEGORY
                                     </button>
                                 </NavLink>
@@ -54,14 +54,14 @@ const Header = () => {
                                 !auth.user ? (<>
                                     <li className="nav-item">
                                         <NavLink to="/register" className="nav-link" href="#">
-                                            <button className='button-30'>
+                                            <button className='btn btn-outline-success'>
                                                 REGISTER
                                             </button>
                                         </NavLink>
                                     </li>
                                     <li className="nav-item">
                                         <NavLink to="/login" className="nav-link" href="#">
-                                            <button className='button-30'>
+                                            <button className='btn btn-outline-success'>
                                                 LOGIN
                                             </button>
                                         </NavLink>
@@ -77,7 +77,7 @@ const Header = () => {
                                                 data-bs-toggle="dropdown"
                                                 style={{ border: "none" }}
                                             >
-                                                <button className="button-30">
+                                                <button className="btn btn-outline-success">
                                                     {auth?.user?.name}
                                                 </button>
 
@@ -111,8 +111,8 @@ const Header = () => {
                             }
                             <li className="nav-item">
                                 <NavLink to="/cart" className="nav-link">
-                                    <button className='button-30'>
-                                        CART (0)
+                                    <button className='btn btn-outline-success'>
+                                        CART(0)
                                     </button>
                                 </NavLink>
                             </li>

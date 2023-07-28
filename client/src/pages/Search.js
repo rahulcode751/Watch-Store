@@ -2,8 +2,10 @@ import React from 'react'
 import Layout from '../components/Layout/Layout.js'
 import { useSearch } from '../context/search'
 import '../styles/search.css'
+import { useNavigate } from 'react-router-dom'
 
 const Search = () => {
+    const navigate = useNavigate();
     const [values, setValues] = useSearch();
     return (
         <Layout>
@@ -26,6 +28,7 @@ const Search = () => {
                                     <button
                                         className="button-83"
                                         style={{ marginBottom: "5px" }}
+                                        onClick={() => navigate(`/product/${p.slug}`)}
                                     >
                                         More Details
                                     </button>
