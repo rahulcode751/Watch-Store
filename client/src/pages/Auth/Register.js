@@ -35,14 +35,14 @@ const Register = () => {
     }
 
     return (
-        <Layout title="Register - BuyNow.com">
+        <Layout title="Register - TimeMachine.com">
             <div className='register-box'>
                 <div
                     className='form-banner'>
                     <img src='/images/register.gif' alt='registerimg' />
                 </div>
                 <div className='register'>
-                    <h4>Register with <BsWatch />BuyNow</h4>
+                    <h4>Register with <BsWatch />Time Machine</h4>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-1">
                             <label
@@ -151,7 +151,7 @@ const Register = () => {
                             className='goto-login'
                             onClick={() => { navigate('/login') }}
                         >
-                            Already Registered
+                            Already Registered ?
                         </h6>
                         <button
                             type="submit"

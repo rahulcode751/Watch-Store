@@ -25,8 +25,8 @@ const Layout = ({ children, title, description, keywords, author }) => {
 }
 
 Layout.defaultProps = {
-    title: "BuyNow.com",
-    description: "BuyNow is an Ecommerce website for watches",
+    title: "TimeMachine.com",
+    description: "TimeMachine is an Ecommerce website for watches",
     keywords: "mern,react,node,mongodb",
     author: "Rahul Bairagi",
 };

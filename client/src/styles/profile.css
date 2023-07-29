@@ -1,0 +1,12 @@
+/** @format */
+
+.profile-banner {
+  width: 40% !important;
+  margin: 50px !important;
+}
+.profile {
+  display: flex !important;
+  flex-direction: row !important;
+  margin-top: -100px !important;
+  margin-left: 20% !important;
+}

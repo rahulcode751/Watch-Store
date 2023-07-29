@@ -40,7 +40,7 @@ const ForgotPasssword = () => {
                     <img src='/images/forgot-password.gif' alt='forgotpasswordImage' />
                 </div>
                 <div className='forgotpassword'>
-                    <h2><BsWatch />BuyNow</h2>
+                    <h2><BsWatch />Time Machine</h2>
                     <h4>Forgot Password</h4>
                     <form onSubmit={handleSubmit}>
 

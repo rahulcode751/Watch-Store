@@ -1,15 +1,19 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import { BsWatch } from 'react-icons/bs'
+// import { BsWatch } from 'react-icons/bs'
 import { useAuth } from '../../context/auth';
-// import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
-// import { GiShoppingBag } from 'react-icons/gi'
 import "../../index.css";
 import SearchInput from '../Form/SearchInput';
+import useCategory from './../../hooks/useCategory';
+import { useCart } from '../../context/cart';
+import { Badge } from 'antd'
 
 const Header = () => {
     const [auth, setAuth] = useAuth();
+    const [cart] = useCart();
+    const categories = useCategory();
+
     const handleLogout = () => {
         setAuth({
             ...auth,
@@ -33,7 +37,15 @@ const Header = () => {
                         <span className="navbar-toggler-icon" />
                     </button>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <Link to="/" className="navbar-brand" ><BsWatch className='watch-logo' />BuyNow</Link>
+                        <Link
+                            to="/"
+                            className="navbar-brand"
+                            style={{ fontSize: "30px", fontFamily: "inherit" }}
+                        >
+                            {/* <BsWatch className='watch-logo' /> */}
+                            <img src='/images/logo6.png' alt='logo' style={{ height: "55px", width: "170px", marginLeft: "10px", border: "0.2px solid black", borderRadius: "10px" }} />
+
+                        </Link>
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <SearchInput />
                             <li className="nav-item">
@@ -43,13 +55,38 @@ const Header = () => {
                                     </button>
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink to="/category" className="nav-link">
+
+                            <li className="nav-item dropdown">
+                                <Link
+                                    className="nav-link nav-link dropdown-toggle"
+                                    to={"/categories"}
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    style={{ border: "none" }}
+                                >
                                     <button className='btn btn-outline-success'>
-                                        CATEGORY
+                                        All CATEGORIES
                                     </button>
-                                </NavLink>
+                                </Link>
+                                <ul className="dropdown-menu">
+                                    <li>
+                                        <Link className="dropdown-item" to={"/categories"}>
+                                            All Categories
+                                        </Link>
+                                    </li>
+                                    {categories?.map((c) => (
+                                        <li>
+                                            <Link
+                                                className="dropdown-item"
+                                                to={`/category/${c.slug}`}
+                                            >
+                                                {c.name}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
                             </li>
+
                             {
                                 !auth.user ? (<>
                                     <li className="nav-item">
@@ -104,17 +141,18 @@ const Header = () => {
                                                     </NavLink>
                                                 </li>
                                             </ul>
-
                                         </li>
                                     </>
                                 )
                             }
                             <li className="nav-item">
-                                <NavLink to="/cart" className="nav-link">
-                                    <button className='btn btn-outline-success'>
-                                        CART(0)
-                                    </button>
-                                </NavLink>
+                                <Badge count={cart?.length} showZero>
+                                    <NavLink to="/cart" className="nav-link">
+                                        <button className='btn btn-outline-success'>
+                                            CART
+                                        </button>
+                                    </NavLink>
+                                </Badge>
                             </li>
                         </ul>
                     </div>

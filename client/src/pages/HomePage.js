@@ -5,11 +5,14 @@ import axios from 'axios';
 import { Checkbox, Radio } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { Prices } from '../components/Prices';
+import { useCart } from '../context/cart.js'
+import { toast } from 'react-hot-toast';
 import '../styles/home.css';
 
 const HomePage = () => {
     const navigate = useNavigate();
     const [auth, setAuth] = useAuth();
+    const [cart, setCart] = useCart([]);
     const [products, setProducts] = useState([auth]);
     const [categories, setCategories] = useState([]);
     const [checked, setChecked] = useState([]);
@@ -116,7 +119,7 @@ const HomePage = () => {
                         <h3
                             onClick={() => navigate("/")}
                             style={{ cursor: "pointer" }} className='text-center'>
-                            Filter By Price
+                            Filter By Category
                         </h3>
                         {categories?.map((c) => (
                             <Checkbox
@@ -133,7 +136,7 @@ const HomePage = () => {
                         <h3
                             onClick={() => navigate("/")}
                             style={{ cursor: "pointer" }} className='text-center'>
-                            Filter By Category
+                            Filter By Price
                         </h3>
                         <Radio.Group
                             onChange={e => setRadio(e.target.value)}
@@ -177,10 +180,17 @@ const HomePage = () => {
                                     <button
                                         className="button-83"
                                         style={{ marginBottom: "-5px" }}
+                                        onClick={() => {
+                                            setCart([...cart, p]);
+                                            localStorage.setItem(
+                                                "cart",
+                                                JSON.stringify([...cart, p])
+                                            );
+                                            toast.success("Item Added to cart");
+                                        }}
                                     >
                                         ADD TO CART
                                     </button>
-
                                 </div>
                             </div>
                         ))}

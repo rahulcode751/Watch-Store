@@ -49,7 +49,7 @@ const Login = () => {
                     <img src='/images/login.gif' alt='registerimg' />
                 </div>
                 <div className='login'>
-                    <h4>Login with <BsWatch />BuyNow</h4>
+                    <h4>Login with <BsWatch />Time Machine</h4>
                     <form onSubmit={handleSubmit}>
 
                         <div className="mb-3">

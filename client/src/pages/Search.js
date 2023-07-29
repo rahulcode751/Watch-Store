@@ -3,14 +3,17 @@ import Layout from '../components/Layout/Layout.js'
 import { useSearch } from '../context/search'
 import '../styles/search.css'
 import { useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
+import { useCart } from '../context/cart.js'
 
 const Search = () => {
     const navigate = useNavigate();
     const [values, setValues] = useSearch();
+    const [cart, setCart] = useCart([]);
     return (
         <Layout>
             <div className="container">
-                <div className="text-center">
+                <div className="">
                     <h1>Search Results</h1>
                     <h6>{values?.results.length < 1 ? "No Products Found" : `Found ${values?.results.length}`}</h6>
                     <div className='d-flex flex-wrap search-card'>
@@ -35,6 +38,14 @@ const Search = () => {
                                     <button
                                         className="button-83"
                                         style={{ marginBottom: "-5px" }}
+                                        onClick={() => {
+                                            setCart([...cart, p]);
+                                            localStorage.setItem(
+                                                "cart",
+                                                JSON.stringify([...cart, p])
+                                            );
+                                            toast.success("Item Added to cart");
+                                        }}
                                     >
                                         ADD TO CART
                                     </button>
