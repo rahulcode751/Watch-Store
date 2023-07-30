@@ -28,6 +28,18 @@ At Time Machine, we understand the significance of a watch as a timeless accesso
 3. Setup the backend code -
 
    - Create a `config.env` file and the format should be as given in `env.example`.
+   - "config.env" containes following Secrets
+
+   ```
+    MONGO_URL=
+    PORT=
+    DEV_MODE=
+    JWT_SECRET=
+    BRAINTREE_MERCHANT_ID=
+    BRAINTREE_PUBLIC_KEY=
+    BRAINTREE_PRIVATE_KEY=
+   ```
+   
    - install the modules-
 
    ```
