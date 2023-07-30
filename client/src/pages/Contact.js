@@ -21,7 +21,7 @@ const Contact = () => {
                     </p>
                     <div style={{ fontFamily: "'Poppins', sans-serif" }}>
                         <p className="mt-3">
-                            <BiMailSend /> : help@buynow.com
+                            <BiMailSend /> : help@TimeMachine.com
                         </p>
                         <p className="mt-3">
                             <BiPhoneCall /> : +91 **********
