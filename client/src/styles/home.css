@@ -4,7 +4,7 @@
   display: flex !important;
   flex-wrap: wrap !important;
   flex-direction: column !important;
-  background-color: #dae5f0;
+  background-color: #e3ecf6;
   border: 2px solid black;
   margin: 6% 5%;
 }
@@ -26,16 +26,18 @@
   margin-top: 2% !important;
   width: 250px !important;
   border: 1px solid gray !important;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+  /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
-    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 .home-card-img {
   /* border: 0.5px solid gray !important;
     border-radius: 2px !important; */
-  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+  /* box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
     rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
-    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    rgba(0, 0, 0, 0.09) 0px 32px 16px; */
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
   /* border-bottom: 20px gray; */
   border-bottom: 0.1px solid black !important;
   border-bottom-right-radius: 20px;

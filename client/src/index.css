@@ -29,7 +29,8 @@ s .navbar-brand {
   font-family: "Poppins", sans-serif;
   font-size: 17px;
   line-height: 26px;
-  background-color: #b6c7d8 !important;
+  background-color: #cad8e6 !important;
+  /* background-color: #b6c7d8 !important; */
   /* text-transform: uppercase; */
   box-shadow: 0 8px 6px -6px gray;
   --webkit-box-shadow: 0 8px 6px -6px gray;

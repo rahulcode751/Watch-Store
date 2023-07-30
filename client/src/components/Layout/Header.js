@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
-// import { BsWatch } from 'react-icons/bs'
+import { FcHome } from 'react-icons/fc'
 import { useAuth } from '../../context/auth';
 import { toast } from 'react-hot-toast';
 import "../../index.css";
@@ -45,16 +45,28 @@ const Header = () => {
                             style={{ fontSize: "30px", fontFamily: "inherit" }}
                         >
                             {/* <BsWatch className='watch-logo' /> */}
-                            <img src='/images/logo6.png' alt='logo' style={{ height: "55px", width: "170px", marginLeft: "10px", border: "0.2px solid black", borderRadius: "10px" }} />
+                            <img src='/images/logo9.png' alt='logo' style={{
+                                height: "55px",
+                                width: "190px",
+                                marginLeft: "10px",
+                                borderRadius: "10px"
+                            }} />
 
                         </Link>
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <SearchInput />
                             <li className="nav-item">
                                 <NavLink to="/" className="nav-link">
-                                    <button className='btn btn-outline-success'>
-                                        HOME
-                                    </button>
+
+                                    <img src='/images/home.png' alt='logo' style={{
+                                        height: "55px",
+                                        width: "50px",
+                                        marginTop: "-10px",
+                                        marginLeft: "10px",
+                                        borderRadius: "10px"
+                                    }} />
+
+
                                 </NavLink>
                             </li>
 
@@ -150,9 +162,14 @@ const Header = () => {
                             <li className="nav-item">
                                 <Badge count={cart?.length} showZero>
                                     <NavLink to="/cart" className="nav-link">
-                                        <button className='btn btn-outline-success'>
-                                            CART
-                                        </button>
+
+                                        <img src='/images/cart.png' alt='logo' style={{
+                                            height: "45px",
+                                            width: "70px",
+                                            marginTop: "-5px",
+                                            marginLeft: "2px",
+                                            borderRadius: "10px"
+                                        }} />
                                     </NavLink>
                                 </Badge>
                             </li>

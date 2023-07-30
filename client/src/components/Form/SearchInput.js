@@ -21,7 +21,7 @@ const SearchInput = () => {
     };
 
     return (
-        <div className='search-input'>
+        <div className='search-input' >
             <form className="d-flex search-input-form" role="search" onSubmit={handleSubmit}>
                 <input
                     className="form-control me-2"
@@ -30,10 +30,18 @@ const SearchInput = () => {
                     aria-label="Search"
                     value={values.keyword}
                     onChange={(e) => setValues({ ...values, keyword: e.target.value })}
+
                 />
-                <button className="btn btn-outline-success" type="submit">
+                {/*<button className="btn btn-outline-success" type="submit">
                     Search
-                </button>
+    </button>*/ }
+                <img src='/images/search.png' alt='logo' style={{
+                    height: "40px",
+                    width: "60px",
+                    marginTop: "0px",
+                    marginLeft: "-60px",
+                    borderRadius: "10px",
+                }} type="submit" onClick={handleSubmit} />
             </form>
         </div>
     )

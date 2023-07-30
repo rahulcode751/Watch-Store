@@ -16,12 +16,13 @@ const Policy = () => {
                 <div className="col-md-4 " >
                     <h1 className="bg-dark p-2 text-white text-center title title-policy">Privacy Policy</h1>
                     <div style={{ fontFamily: "'Poppins', sans-serif" }}>
-                        <p>add privacy policy</p>
-                        <p>add privacy policy</p>
-                        <p>add privacy policy</p>
-                        <p>add privacy policy</p>
-                        <p>add privacy policy</p>
-                        <p>add privacy policy</p>
+                        <p>------------------------------------------------------</p>
+                        <p>------------------------------------------------------</p>
+                        <p>------------------------------------------------------</p>
+                        <p>------------------------------------------------------</p>
+                        <p>------------------------------------------------------</p>
+                        <p>------------------------------------------------------</p>
+                        <p>------------------------------------------------------</p>
                     </div>
                 </div>
             </div>

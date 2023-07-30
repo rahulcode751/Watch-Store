@@ -60,7 +60,7 @@ const Profile = () => {
                     </div>
 
                     <div className='profile'>
-                        <img src='/images/logo7.png' alt='registerimg' className='profile-banner' />
+                        <img src='/images/logo9.png' alt='registerimg' className='profile-banner' />
                         <form onSubmit={handleSubmit}>
                             <div className="mb-1">
                                 <label
