@@ -1,0 +1,39 @@
+/** @format */
+
+.order-div {
+  /* margin-top: -150px !important;
+  margin-left: 25% !important; */
+}
+.order-heading {
+  /* text-align: center !important; */
+}
+.table-div-order {
+}
+.create-order-table {
+  /* border: 1px solid black !important; */
+}
+.order-table-head {
+  /* margin-left: 100px !important; */
+}
+.create-order-table-body {
+}
+.order-page {
+  height: 140px !important;
+  /* width: 35% !important; */
+}
+.order-img {
+  border: 1px solid gray;
+}
+.order-details {
+  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
+.border {
+  /* border-radius: 1px solid black !important; */
+  border: 1px solid black !important;
+  background-color: rgb(246, 239, 231) !important;
+  margin-bottom: 5px !important;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.select-status {
+  font-size: larger !important;
+}
