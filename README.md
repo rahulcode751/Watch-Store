@@ -65,7 +65,6 @@ Some of the technologies used in the development of this web application are as 
 -   [React.js](https://reactjs.org/): A JavaScript library for building user interfaces.
 -   [Node.js](https://nodejs.org/en/): A runtime environment to help build fast server applications using JS.
 -   [Express.js](https://expressjs.com/): A popular Node.js framework to build scalable server-side for web applications.
--   [Redux.js](https://redux.js.org/): A predictable & global state container for React apps.
 -   [Mongoose](https://mongoosejs.com/): An ODM(Object Data Modelling)library for MongoDB and Node.js
 -   [Braintree](https://www.braintreepayments.com/): Accept payments, and enable commerce for their users.
 
