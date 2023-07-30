@@ -11,7 +11,7 @@ import { Badge } from 'antd'
 
 const Header = () => {
     const [auth, setAuth] = useAuth();
-    const [cart] = useCart();
+    const [cart, setCart] = useCart();
     const categories = useCategory();
 
     const handleLogout = () => {
@@ -20,7 +20,9 @@ const Header = () => {
             user: null,
             token: ''
         })
+        setCart([]);
         localStorage.removeItem('auth');
+        localStorage.removeItem('cart');
         toast.success("Logout Successfully");
 
     }

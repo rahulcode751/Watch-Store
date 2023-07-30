@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Layout from '../components/Layout/Layout'
 import { useCart } from '../context/cart';
 import { useAuth } from '../context/auth';
 import { useNavigate } from "react-router-dom";
+import DropIn from "braintree-web-drop-in-react";
+import axios from 'axios';
+import toast from "react-hot-toast";
 import '../styles/cart.css'
 
 const CartPage = () => {
     const [auth, setAuth] = useAuth();
     const [cart, setCart] = useCart();
     const navigate = useNavigate();
+    const [instance, setInstance] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [clientToken, setClientToken] = useState("");
 
     //total price
     const totalPrice = () => {
@@ -37,6 +43,40 @@ const CartPage = () => {
             console.log(error);
         }
     };
+
+    ///get payment gateway token
+    const getToken = async () => {
+        try {
+            const { data } = await axios.get(`${process.env.REACT_APP_API}/product/braintree/token`);
+            setClientToken(data?.clientToken);
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    useEffect(() => {
+        getToken();
+    }, [auth?.token]);
+
+    //handle payments
+    const handlePayment = async () => {
+        try {
+            setLoading(true);
+            const { nonce } = await instance.requestPaymentMethod();
+            const { data } = await axios.post(`${process.env.REACT_APP_API}/product/braintree/payment`, {
+                nonce,
+                cart,
+            });
+            setLoading(false);
+            localStorage.removeItem("cart");
+            setCart([]);
+            navigate("/dashboard/user/orders");
+            toast.success("Payment Completed Successfully ");
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+        }
+    };
+
     return (
         <Layout>
             <div className="container">
@@ -70,7 +110,7 @@ const CartPage = () => {
                                 </div>
                                 <div className="col-md-9 cart-details">
                                     <p>{p.name}</p>
-                                    <p>{p.description.substring(0, 30)}</p>
+                                    <p>{p.description}</p>
                                     <p>Price : {p.price}</p>
                                     <button
                                         className="button-54"
@@ -124,6 +164,34 @@ const CartPage = () => {
                                 )}
                             </div>
                         )}
+                        <div className="payment-cart">
+                            {!clientToken || !cart?.length ? (
+                                ""
+                            ) : (
+                                <>
+                                    <div className="payment-option">
+                                        < DropIn
+
+                                            options={{
+                                                authorization: clientToken,
+                                                paypal: {
+                                                    flow: "vault",
+                                                },
+                                            }}
+                                            onInstance={(instance) => setInstance(instance)}
+                                        />
+                                    </div>
+
+                                    <button
+                                        className="button-92"
+                                        onClick={handlePayment}
+                                        disabled={loading || !instance || !auth?.user?.address}
+                                    >
+                                        {loading ? "Processing ...." : "Make Payment"}
+                                    </button>
+                                </>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div >

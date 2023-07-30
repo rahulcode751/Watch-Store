@@ -36,7 +36,7 @@ const Profile = () => {
                 phone,
                 address,
             });
-            if (data?.errro) {
+            if (data?.error) {
                 toast.error(data?.error);
             } else {
                 setAuth({ ...auth, user: data?.updatedUser });
@@ -75,7 +75,7 @@ const Profile = () => {
                                     className="form-control"
                                     id="exampleInputName"
                                     placeholder='Enter Name'
-                                    required
+
                                     autoFocus
                                 />
                             </div>
@@ -93,7 +93,7 @@ const Profile = () => {
                                     className="form-control"
                                     id="exampleInputEmail"
                                     placeholder='Enter Email'
-                                    required
+
                                 />
                             </div>
 
@@ -127,7 +127,7 @@ const Profile = () => {
                                     className="form-control"
                                     id="exampleInputPhone"
                                     placeholder='+91 **********'
-                                    required
+
                                 />
                             </div>
 
@@ -144,7 +144,7 @@ const Profile = () => {
                                     className="form-control"
                                     id="exampleInputAddress"
                                     placeholder='Enter Address'
-                                    required
+
                                 />
                             </div>
 
